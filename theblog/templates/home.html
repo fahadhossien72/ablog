@@ -1,0 +1,24 @@
+
+{% extends 'base.html'  %}
+
+{% block content %}
+
+
+<h1>Blog Post</h1>
+
+<ul>
+	
+	{% for post in object_list %}
+
+	     <li> <a href="{% url 'article-view' post.id %}"> {{post.title}} </a>  
+		 {{post.author.first_name}}  {{post.author.last_name}}-{{post.date_post}} - <small> <a href="{% url 'update-view' post.id %}">(edit)</a></small>
+		 <small> <a href="{% url 'delete-view' post.id %}">(delete)</a></small>
+		  <br>{{post.body}}<li>
+	     
+
+
+	{% endfor %}
+
+</ul>
+
+{% endblock %}
